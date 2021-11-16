@@ -80,7 +80,7 @@
 ## 7. 배운점
 
   - 백엔드
-      - restful Api에 대한 이해와 flask서버를 통해 api설계
+      - flask서버와 restful Api에 대해 알게되었고 api설계
       - 서버와 클라이언트간 http 통신이 가능하도록 axios를 사용
       - WAS(web application server)와 Web server에 대해서도 공부
       - azure VM에 접속해 web server인 nginx를 이용한 배포경험
