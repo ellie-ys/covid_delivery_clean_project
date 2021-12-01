@@ -97,3 +97,12 @@
   - 그 외
       - 커뮤니케이션과 팀웍에 대한 중요성을 느낌
       - 최종발표 땐 '주제가 적절했다', '팀웍이 대단했고, 스타트업와 같은 열정을 느꼈다.' 는 담당 코치님의 피드백을 듣고 뿌듯
+
+  - 팀원으로서 기여한 점
+  (애자일 방식으로 와이어 프레임이 4번 바뀌었기 때문에 최종 프로젝트 기준)
+    - 식약처 데이터 OPEN API등 데이터를 가지고 분석 및 가공 - jupyter notebook사용
+    - backend server api 설계에 참여
+    - 데이터베이스 설계 및 테이블 컬럼 추가에 따른 models.py 보완
+    - 데이터베이스 생성 및 schema.sql 작성해 데이터 입력
+    - server flask Blueprint에 url_prefix를 추가해 nginx에 proxy_pass를 적용할 수 있게 함
+    - front, react issue page 작성 및 modal 사용해 그래프 시각화
