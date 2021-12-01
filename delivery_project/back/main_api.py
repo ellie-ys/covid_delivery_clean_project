@@ -7,7 +7,7 @@ import random
 import requests
 from haversine import haversine
 
-bp = Blueprint('main', __name__, url_prefix='/api')
+bp = Blueprint('main', __name__)
 
 # 지역별로 위생등급을 받은 전체가게 수와 프랜차이점의 수를 반환하는 API
 @bp.route('/regioncount', methods=['POST'])
@@ -129,22 +129,6 @@ def storelist():
 # 전국 가게 리스트 수를 반환하는 API
 @bp.route('/allstorecount', methods=['POST'])
 def allstorecount():
-    '''
-    result = {'data': defaultdict(int) }
-    all_store = allTable.query.all()
-    for store in all_store:
-        addr = str(store.addr1)
-        try:
-            region_big, region_small = addr.split()[0], addr.split()[1]
-        except:
-            continue
-        if region_big == "서울특별시":
-            result['data'][region_small] += 1
-            result['data'][region_big] += 1
-        else:
-            result['data'][region_big] += 1
-        result['data']['전국'] += 1
-    '''
     result = {
     "data": {
         "강남구": 16119,
@@ -194,6 +178,7 @@ def allstorecount():
     }
     return jsonify(result)
 
+
 @bp.route('/allstorelist', methods=['POST'])
 def allstorelist():
     data = request.get_json()
@@ -203,8 +188,6 @@ def allstorelist():
     for store in store_list:
         goal = (float(store.latitude), float(store.longitude))
         distance = format(haversine(start, goal), ".2f")
-        addr3 = str(store.addr3).replace(' ', '').rstrip()
-        code_big = str(store.code_big)
         result['data'].append({"bssh_nm" : store.bssh_nm,
                                 "hg_asgn_lv" : store.hg_asgn_lv,
                                 "addr" : store.addr,
@@ -212,6 +195,5 @@ def allstorelist():
                                 "addr1" : store.addr1,
                                 "addr2" : store.addr2,
                                 "distance" : distance,
-                                "addr3": addr3,
-                                "code_big": code_big })
+                                })
     return jsonify(result)
