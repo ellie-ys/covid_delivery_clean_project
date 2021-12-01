@@ -7,7 +7,7 @@ import random
 import requests
 from haversine import haversine
 
-bp = Blueprint('main', __name__)
+bp = Blueprint('main', __name__, url_prefix='/api')
 
 # 지역별로 위생등급을 받은 전체가게 수와 프랜차이점의 수를 반환하는 API
 @bp.route('/regioncount', methods=['POST'])
@@ -129,6 +129,9 @@ def storelist():
 # 전국 가게 리스트 수를 반환하는 API
 @bp.route('/allstorecount', methods=['POST'])
 def allstorecount():
+
+
+
     result = {
     "data": {
         "강남구": 16119,
@@ -188,6 +191,8 @@ def allstorelist():
     for store in store_list:
         goal = (float(store.latitude), float(store.longitude))
         distance = format(haversine(start, goal), ".2f")
+        addr3 = str(store.addr3).replace(' ', '').rstrip()
+        code_big = str(store.code_big)
         result['data'].append({"bssh_nm" : store.bssh_nm,
                                 "hg_asgn_lv" : store.hg_asgn_lv,
                                 "addr" : store.addr,
