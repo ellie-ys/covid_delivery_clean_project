@@ -105,4 +105,4 @@
     - 데이터베이스 설계 및 테이블 컬럼 추가에 따른 models.py 보완
     - 데이터베이스 생성 및 schema.sql 작성해 데이터 입력
     - server flask Blueprint에 url_prefix를 추가해 nginx에 proxy_pass를 적용할 수 있게 함
-    - front, react issue page 작성 및 modal 사용해 그래프 시각화
+    - front, React  / issue page 작성 및 JS library( modal ) 사용해 민원 그래프 시각화
